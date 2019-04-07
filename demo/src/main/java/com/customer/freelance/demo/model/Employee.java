@@ -6,16 +6,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee {
 
 	@Id
 	@Column(name = "emp_id")
 	// @GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer empId;
+	private Long empId;
 	@Column(name = "fname")
 	private String firstName;
 	@Column(name = "lname")
@@ -23,11 +26,11 @@ public class Employee {
 	@Column(name = "city")
 	private String city;
 	@Column(name = "dept_id")
-	private Integer deptartmentId;
-	public Integer getEmpId() {
+	private Long deptartmentId;
+	public Long getEmpId() {
 		return empId;
 	}
-	public void setEmpId(Integer empId) {
+	public void setEmpId(Long empId) {
 		this.empId = empId;
 	}
 	public String getFirstName() {
@@ -48,10 +51,10 @@ public class Employee {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public Integer getDeptartmentId() {
+	public Long getDeptartmentId() {
 		return deptartmentId;
 	}
-	public void setDeptartmentId(Integer deptartmentId) {
+	public void setDeptartmentId(Long deptartmentId) {
 		this.deptartmentId = deptartmentId;
 	}
 
